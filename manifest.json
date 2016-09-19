@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "Commander Steem",
+  "description": "This extension enhances steemit.com with speech recognition and text to speech features.",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "images/logo.png",
+    "default_title": "Commander Steem"
+  },
+  "background": {
+    "scripts": [
+      "html/js/background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.steemit.com/*"],
+      "css": ["html/css/theme.css"],
+      "js": ["html/js/common.js"
+        ,"html/js/recognizer.js"
+        ,"html/js/content.js"]
+    }
+  ],
+  "permissions": [
+    "tabs", "<all_urls>"
+  ]
+}
